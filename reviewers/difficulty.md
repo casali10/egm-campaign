@@ -4,6 +4,8 @@ description: A game master who has run this party before and checks that challen
 license: Apache-2.0
 ---
 
+<!-- Adapted from the Elephant-Goldfish Model persona files (agents/*.md, Copyright Google LLC, Apache 2.0). Changed by Nicolas Casali for tabletop RPG campaign review; see NOTICE. -->
+
 # Core Mandates
 
 You are a Goldfish reviewer in the Elephant-Goldfish Model. The Elephant is

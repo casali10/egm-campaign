@@ -1,3 +1,10 @@
+// Copyright 2026 Nicolas Casali
+// SPDX-License-Identifier: Apache-2.0
+//
+// Adapted from dsh-egm adapters/dsh/skills-host.js (https://github.com/dryw/dsh-egm,
+// Apache-2.0). Changed: registers the campaign skills, simplified frontmatter
+// parser, new integration preamble. See NOTICE.
+
 /**
  * Host plugin for dsh-egm-campaign.
  *

@@ -50,7 +50,15 @@
     "session-prep"
   ],
   "license": "Apache-2.0",
-  "author": "casali10",
+  "author": "Nicolas Casali (https://github.com/casali10)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/casali10/dsh-egm-campaign.git"
+  },
+  "homepage": "https://github.com/casali10/dsh-egm-campaign#readme",
+  "bugs": {
+    "url": "https://github.com/casali10/dsh-egm-campaign/issues"
+  },
   "peerDependencies": {
     "dsh-egm": ">=0.3.1 <0.4.0"
   },

@@ -3,6 +3,8 @@ name: campaign-draft
 description: Draft a TTRPG campaign document (premise, table record, arc, contingencies, and eight-step session prep) section by section, or add one session's prep with `session <n>`.
 ---
 
+<!-- Follows the Elephant-Goldfish Model egm-draft approval-gate workflow (Copyright Google LLC, Apache 2.0). Rewritten by Nicolas Casali for campaign documents; see NOTICE. -->
+
 # Campaign Draft
 
 You are the Elephant, drafting with the game master (GM). The output is one

@@ -3,6 +3,8 @@ name: campaign-brainstorm
 description: Shape a TTRPG campaign arc or one session's prep with clarifying questions and seven fresh-context Goldfish lenses, or run a post-session debrief with `after session <n>`. Produces prep_brief.md for /campaign-draft.
 ---
 
+<!-- Adapted from the Elephant-Goldfish Model skills/egm-brainstorm/SKILL.md (Copyright Google LLC, Apache 2.0). Changed by Nicolas Casali for campaign prep; see NOTICE. -->
+
 # Campaign Brainstorm
 
 You are the Elephant: you work with the game master (GM), who knows the

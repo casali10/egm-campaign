@@ -1,22 +1,68 @@
 dsh-egm-campaign
-Copyright 2026 Nicolas Casali
-
+Copyright 2026 Nicolas Casali (casali10)
 Licensed under the Apache License, Version 2.0.
 
-This package builds on dsh-egm (https://github.com/dryw/dsh-egm), the
-Elephant-Goldfish Model for DeepSeek Harness by dryw, licensed under the
-Apache License, Version 2.0. dsh-egm is a port of the Elephant-Goldfish Model
-(https://github.com/google/elephant-goldfish-model), Copyright Google LLC,
-licensed under the Apache License, Version 2.0.
+Tabletop RPG campaign prep for DeepSeek Harness, built on dsh-egm.
 
-No files are copied from either project. This package depends on dsh-egm at
-runtime for its `egm_reviewer` tool and read-only `egm-reviewer` preset.
-Changes relative to dsh-egm: the skills, reviewer personas, brainstorm
-lenses, standard, and host plugin here are new, written for tabletop RPG
-campaign prep. The reviewer persona structure (core mandates, role,
-instructions, output format) and the skill preamble approach follow the
-upstream and dsh-egm conventions.
+This package contains work derived from the two projects below, both licensed
+under the Apache License, Version 2.0. Their attribution notices are carried
+forward here as section 4(d) of the License requires.
 
+------------------------------------------------------------------------------
+dsh-egm: Elephant-Goldfish Model for DeepSeek Harness
+  https://github.com/dryw/dsh-egm
+  By dryw. Licensed under the Apache License, Version 2.0.
+
+  Attribution carried from its NOTICE file:
+
+    This package ports the Elephant-Goldfish Model (EGM) plugin so it runs on
+    DeepSeek Harness instead of Antigravity, Claude Code, or Codex.
+
+    Port of the Elephant-Goldfish Model:
+      https://github.com/google/elephant-goldfish-model
+      Copyright Google LLC
+      Licensed under the Apache License, Version 2.0.
+
+    This is not an officially supported Google product.
+
+Elephant-Goldfish Model (EGM)
+  https://github.com/google/elephant-goldfish-model
+  Copyright Google LLC. Licensed under the Apache License, Version 2.0.
+------------------------------------------------------------------------------
+
+Derived files, and how they were changed (License section 4(b)):
+
+  - host/skills-host.js
+      Adapted from dsh-egm adapters/dsh/skills-host.js. Changed: registers
+      this package's campaign skills instead of the vendored EGM skills;
+      simplified frontmatter parser; new integration preamble; package root
+      is one level up.
+  - reviewers/*.md, lenses/*.md
+      The persona structure and the "Core Mandates" section (read-only,
+      fresh context, no chitchat) are adapted from the EGM persona files
+      (agents/*.md). Changed: rewritten for tabletop RPG campaign review;
+      roles, checks, and output formats are new.
+  - skills/campaign-brainstorm/SKILL.md
+      The workflow shape (clarify, readiness gate, parallel Goldfish lenses,
+      brief, handoff) and several constraints are adapted from EGM
+      skills/egm-brainstorm/SKILL.md. Changed: rewritten for campaign prep;
+      the eight-step questions, seven lenses, and post-session debrief are
+      new.
+  - skills/campaign-draft/SKILL.md, skills/campaign-review/SKILL.md
+      Follow the section-by-section approval gates of EGM egm-draft and the
+      fresh-reviewer passes of EGM egm-review. Changed: rewritten for
+      campaign documents; sections, passes, and report format are new.
+
+All other files (the standard, templates, tests, and documentation) are
+original to this package. No files from dsh-egm or EGM are included
+unchanged. At runtime this package uses dsh-egm's `egm_reviewer` tool and
+`egm-reviewer` preset, which are installed separately.
+
+This package is not affiliated with, endorsed by, or supported by Google,
+dryw, or DeepSeek.
+
+------------------------------------------------------------------------------
 The eight prep steps follow the Lazy Dungeon Master method by Mike Shea
-(https://slyflourish.com/eight_steps_2023.html). They are described here in
-original words; no text from the book is reproduced.
+(Sly Flourish), https://slyflourish.com/eight_steps_2023.html. The steps are
+named and described here in original words; no text from the books or site
+is reproduced. This package is not affiliated with Sly Flourish.

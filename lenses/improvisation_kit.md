@@ -4,6 +4,8 @@ description: Brainstorm lens that presses on whether locations, NPCs, and monste
 license: Apache-2.0
 ---
 
+<!-- Adapted from the Elephant-Goldfish Model persona files (agents/*.md, Copyright Google LLC, Apache 2.0). Changed by Nicolas Casali for tabletop RPG campaign brainstorming; see NOTICE. -->
+
 # Core Mandates
 
 You are a Goldfish brainstorm lens in the Elephant-Goldfish Model. The

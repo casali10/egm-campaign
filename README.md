@@ -89,6 +89,23 @@ once with no fixes, and compare against one plain session given the same
 checklists, scored blind. Keep a reviewer only if it finds something the
 plain session misses.
 
+## Credits
+
+- **[dsh-egm](https://github.com/dryw/dsh-egm)** by dryw: the DeepSeek Harness
+  port this package runs on. The skills host is adapted from its
+  `skills-host.js`.
+- **[Elephant-Goldfish Model](https://github.com/google/elephant-goldfish-model)**,
+  Copyright Google LLC: the Elephant and Goldfish method. The persona
+  structure and the brainstorm, draft, and review workflows are adapted from
+  its personas and skills.
+- **[Lazy Dungeon Master](https://slyflourish.com/eight_steps_2023.html)** by
+  Mike Shea (Sly Flourish): the eight prep steps, described here in original
+  words.
+
+[NOTICE](NOTICE) lists every derived file and what changed. This package is
+not affiliated with or endorsed by Google, dryw, DeepSeek, or Sly Flourish,
+and is not an officially supported Google product.
+
 ## License
 
 Apache 2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).

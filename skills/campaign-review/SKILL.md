@@ -3,6 +3,8 @@ name: campaign-review
 description: Check a TTRPG campaign document with fresh-context Goldfish reviewers against the run-readiness standard. Use `arc` for Continuity and Table critic, or `session <n>` for Substitute GM, Player's eye, and Difficulty.
 ---
 
+<!-- Follows the Elephant-Goldfish Model egm-review reviewer passes (Copyright Google LLC, Apache 2.0). Rewritten by Nicolas Casali for campaign review; see NOTICE. -->
+
 # Campaign Review
 
 You are the Elephant. You start Goldfish reviewers that see only the campaign
