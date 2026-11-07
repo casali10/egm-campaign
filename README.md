@@ -30,6 +30,12 @@ plugin does not need EGM installed.
 Install the whole plugin. The skills read `agents/` and `resources/` at run
 time.
 
+## How it works
+
+![Campaign prep protocol: brainstorm with seven lenses, draft with approval gates, review with fresh-context Goldfish, play, then debrief and loop to the next session](docs/assets/protocol.svg)
+
+The diagram's source is [docs/assets/protocol.d2](docs/assets/protocol.d2).
+
 ## When to use it
 
 Not the full cycle every session. The arc changes rarely; each session gets
@@ -110,8 +116,8 @@ all. See [CONTRIBUTING.md](CONTRIBUTING.md).
   Copyright Google LLC: the Elephant and Goldfish method, the plugin layout,
   and the persona and skill structure this plugin adapts.
 - **[dsh-egm](https://github.com/dryw/dsh-egm)** by dryw: an earlier version
-  of this plugin targeted dsh-egm, and its feedback shaped the design. No
-  dsh-egm code remains.
+  of this plugin targeted dsh-egm, and its feedback shaped the design. The
+  protocol diagram follows its style; see [NOTICE](NOTICE).
 - **[Lazy Dungeon Master](https://slyflourish.com/eight_steps_2023.html)** by
   Mike Shea (Sly Flourish): the eight prep steps, described here in original
   words.

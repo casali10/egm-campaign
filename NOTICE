@@ -43,7 +43,17 @@ original to this plugin. No EGM files are included unchanged.
 
 An earlier version of this plugin (dsh-egm-campaign) targeted dsh-egm
 (https://github.com/dryw/dsh-egm, by dryw, Apache License 2.0). No dsh-egm
-code remains in this version.
+code remains in this version, except as noted below.
+
+  - docs/assets/protocol.d2
+      The D2 diagram classes (participant, frame, loop, note, and line
+      styles), the colour roles, and the sequence-diagram layout follow
+      dsh-egm docs/assets/protocol.d2. Changed: participants, phases, and
+      messages are new and describe campaign prep.
+  - docs/assets/render.mjs
+      Follows the approach of dsh-egm adapters/dsh/render_diagrams.mjs
+      (title, ARIA label, and an adaptive canvas added after D2 renders).
+      Changed: rewritten as a single-diagram script.
 
 This plugin is not affiliated with, endorsed by, or supported by Google or
 dryw. This is not an officially supported Google product.
