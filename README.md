@@ -99,6 +99,11 @@ plain session misses.
 node --test tests/unit/plugin.test.mjs
 ```
 
+## Contributing
+
+Issues and pull requests are welcome, and reports from real tables most of
+all. See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## Credits
 
 - **[Elephant-Goldfish Model](https://github.com/google/elephant-goldfish-model)**,
