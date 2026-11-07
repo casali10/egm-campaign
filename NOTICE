@@ -1,0 +1,22 @@
+dsh-egm-campaign
+Copyright 2026 Nicolas Casali
+
+Licensed under the Apache License, Version 2.0.
+
+This package builds on dsh-egm (https://github.com/dryw/dsh-egm), the
+Elephant-Goldfish Model for DeepSeek Harness by dryw, licensed under the
+Apache License, Version 2.0. dsh-egm is a port of the Elephant-Goldfish Model
+(https://github.com/google/elephant-goldfish-model), Copyright Google LLC,
+licensed under the Apache License, Version 2.0.
+
+No files are copied from either project. This package depends on dsh-egm at
+runtime for its `egm_reviewer` tool and read-only `egm-reviewer` preset.
+Changes relative to dsh-egm: the skills, reviewer personas, brainstorm
+lenses, standard, and host plugin here are new, written for tabletop RPG
+campaign prep. The reviewer persona structure (core mandates, role,
+instructions, output format) and the skill preamble approach follow the
+upstream and dsh-egm conventions.
+
+The eight prep steps follow the Lazy Dungeon Master method by Mike Shea
+(https://slyflourish.com/eight_steps_2023.html). They are described here in
+original words; no text from the book is reproduced.

@@ -1,0 +1,7 @@
+# dsh-egm-campaign bundle patch: inserts the campaign skills host.
+#
+# Reviewers run through dsh-egm's `egm_reviewer` tool and its read-only
+# `egm-reviewer` preset, so dsh-egm must be installed in the same profile.
+- insert:
+    - id: egm-campaign
+      name: dsh-egm-campaign/skills-host

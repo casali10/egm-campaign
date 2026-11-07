@@ -1,0 +1,94 @@
+# dsh-egm-campaign
+
+Tabletop RPG campaign prep for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness),
+built on [dsh-egm](https://github.com/dryw/dsh-egm), the Elephant-Goldfish Model
+(EGM) for DeepSeek Harness.
+
+A game master (GM) preps with a lot of private context, like EGM's Elephant.
+Prep usually fails because it only works in its author's head. This package
+adds Goldfish reviewers that see only the page: a substitute GM, the players,
+a continuity reader, a critic who knows the table, and a difficulty check.
+
+The prep format follows the eight steps of Mike Shea's
+[Lazy Dungeon Master](https://slyflourish.com/eight_steps_2023.html) method.
+
+> **Status:** 0.1.0, unreleased and untested on a live Harness. The pilot
+> (below) decides whether the reviewers earn their place.
+
+## When to use it
+
+Not the full cycle every session. The arc changes rarely; each session gets
+ordinary prep plus a quick check.
+
+| When | Run | Effort |
+| :--- | :--- | :--- |
+| Campaign start, or a big turn | `/campaign-brainstorm`, `/campaign-draft`, then `/campaign-review <file> arc` | An evening |
+| Before each session | `/campaign-draft session <n>`, then `/campaign-review <file> session <n>` | Normal prep plus a few minutes |
+| After each session | `/campaign-brainstorm after session <n>` | A few minutes |
+| When stuck | `/campaign-brainstorm <one session's pitch>` | Occasional |
+
+## Skills
+
+- **`/campaign-brainstorm`:** clarifying questions over the eight steps, then
+  seven lenses in parallel, then `prep_brief.md`. With `after session <n>`,
+  a debrief whose questions come from that session's planned secrets, hooks,
+  and scenes; it updates the secrets table and open threads.
+- **`/campaign-draft`:** a campaign document built section by section with an
+  approval gate after each: premise and table record, arc, contingencies,
+  and session prep. With `session <n>`, it adds one session.
+- **`/campaign-review`:** starts the reviewers for the `arc` or a
+  `session <n>` pass, writes `campaign_review_report.md`, and walks the GM
+  through Blockers and Majors.
+
+## Reviewers
+
+| Reviewer | Stands in for | Prep steps | Pass |
+| :--- | :--- | :--- | :--- |
+| Substitute GM | A GM with no briefing | 2, 5–7 | Session |
+| Player's eye | The players | 3, 4 | Session |
+| Difficulty | A GM who has run this party before | 3, 7, 8 | Session |
+| Continuity | A reader of the whole arc | 4, 6 | Arc |
+| Table critic | A GM who knows the group | 1, 2, 8 | Arc |
+
+All five use [the run-readiness standard](standards/run-readiness-standard.md).
+"Enough" prep is the eight-step minimum: a missing essential is Major, and
+over-prep is a Nit unless it buries an essential.
+
+## Install
+
+Install dsh-egm first; this package uses its `egm_reviewer` tool and
+read-only reviewer preset. Then add this package to the same profile:
+
+```bash
+dsh plugin --profile web add dsh-egm
+dsh plugin --profile web add /path/to/dsh-egm-campaign
+```
+
+For `headless` and `sdk` profiles, follow dsh-egm's
+[host prerequisites](https://github.com/dryw/dsh-egm/blob/main/docs/dsh.md#host-prerequisites-and-current-limit).
+
+## Layout
+
+| Path | Contents |
+| :--- | :--- |
+| `host/` | The skills host plugin and bundle patch |
+| `skills/` | The three skills and their templates |
+| `reviewers/` | The five review personas |
+| `lenses/` | The seven brainstorm lenses |
+| `standards/` | The run-readiness standard |
+
+Other creative domains, such as fiction writing, could follow the same shape:
+reviewers, lenses, a draft template, and a standard.
+
+## Pilot
+
+Before relying on it: write a short campaign (an arc and two sessions) with
+eight planted flaws, at least one per reviewer, plus a few held-out flaws
+from another GM who has not read the personas. Run the arc and session passes
+once with no fixes, and compare against one plain session given the same
+checklists, scored blind. Keep a reviewer only if it finds something the
+plain session misses.
+
+## License
+
+Apache 2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
