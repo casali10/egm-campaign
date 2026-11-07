@@ -1,6 +1,8 @@
 ---
 name: campaign-brainstorm
 description: Shape a TTRPG campaign arc or one session's prep with clarifying questions and seven fresh-context Goldfish lenses, or run a post-session debrief with `after session <n>`. Produces prep_brief.md for /campaign-draft.
+license: Apache-2.0
+disable-model-invocation: true
 ---
 
 <!-- Adapted from the Elephant-Goldfish Model skills/egm-brainstorm/SKILL.md (Copyright Google LLC, Apache 2.0). Changed by Nicolas Casali for campaign prep; see NOTICE. -->
@@ -15,6 +17,28 @@ Goldfish lenses that see only what is written.
 The eight steps follow Mike Shea's
 [Lazy Dungeon Master](https://slyflourish.com/eight_steps_2023.html) method.
 Describe them in your own words; do not quote the book.
+
+## Delegation
+
+A Goldfish runs in a fresh context with no conversation history. Spawn each
+one with your harness's subagent tool (Claude Code: `Agent`; Antigravity:
+`invoke_subagent`; Codex: `spawn_agent`). Each Goldfish is defined in
+`agents/<file>.md`, and its frontmatter `name` is the subagent type to request
+where your harness registers named subagents (in Claude Code, prefix it with
+the plugin name, for example `egm-campaign:campaign-difficulty`). Otherwise
+spawn a general-purpose subagent and tell it to read that persona file first.
+Pass the prompt verbatim and wait for the report. Never fork or resume a
+Goldfish; start a fresh one. If your harness has no subagent tool, stop and
+tell the user: a review in the same context is not a Goldfish review.
+
+In Claude Code, `${CLAUDE_PLUGIN_ROOT}` is the plugin root. Resolve
+`agents/...` and `resources/...` against it, and `references/...` against
+this skill's directory. Pass absolute paths in every Goldfish prompt. Write
+briefs, campaign documents, and reports to the user's working directory,
+never into the plugin.
+
+Command names are written here as `/campaign-<skill>`. In Claude Code, plugin
+skills are namespaced: use `/egm-campaign:campaign-<skill>`.
 
 ## Modes
 
@@ -41,13 +65,13 @@ Read the arguments:
 
 | Lens | Persona | Steps | Presses on |
 | :--- | :--- | :--- | :--- |
-| Character hooks | `lenses/character_hooks.md` | 1, 8 | Every PC has a hook and a spotlight; rewards fit them |
-| Strong start and table fit | `lenses/strong_start.md` | 2 | The opening pulls the table in; tone and boundaries fit |
-| Scene agency | `lenses/scene_agency.md` | 3 | Scenes are options; nothing hangs on one scene |
-| Secrets and clues | `lenses/secrets_and_clues.md` | 4 | Secrets are brief and can surface more than one way |
-| Improvisation kit | `lenses/improvisation_kit.md` | 5–7 | Locations, NPC goals, and monsters are enough to improvise from |
-| Challenge and stakes | `lenses/challenge_and_stakes.md` | 3, 7, 8 | Danger fits the party and difficulty target; losing has a way out |
-| Prep economy | `lenses/prep_economy.md` | 1–8 | What is over-prepared and can be cut |
+| Character hooks | `agents/lens_character_hooks.md` | 1, 8 | Every PC has a hook and a spotlight; rewards fit them |
+| Strong start and table fit | `agents/lens_strong_start.md` | 2 | The opening pulls the table in; tone and boundaries fit |
+| Scene agency | `agents/lens_scene_agency.md` | 3 | Scenes are options; nothing hangs on one scene |
+| Secrets and clues | `agents/lens_secrets_and_clues.md` | 4 | Secrets are brief and can surface more than one way |
+| Improvisation kit | `agents/lens_improvisation_kit.md` | 5–7 | Locations, NPC goals, and monsters are enough to improvise from |
+| Challenge and stakes | `agents/lens_challenge_and_stakes.md` | 3, 7, 8 | Danger fits the party and difficulty target; losing has a way out |
+| Prep economy | `agents/lens_prep_economy.md` | 1–8 | What is over-prepared and can be cut |
 
 ## Workflow
 
@@ -79,11 +103,11 @@ Read the arguments:
 
 ### Step 2: Run the lenses
 
-Start all seven lenses in parallel with `egm_reviewer`, one call per lens.
+Start all seven lenses in parallel with your harness's subagent tool (see Delegation), one call per lens.
 Each prompt contains:
 
 ```text
-Persona: <absolute path of lenses/<file>.md>
+Persona: <absolute path of agents/lens_<lens>.md>
 Mode: BRAINSTORM
 ProjectRoot: <working directory>
 GoldfishContext: [<campaign document path, if any>]

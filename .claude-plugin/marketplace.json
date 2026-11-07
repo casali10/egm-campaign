@@ -1,0 +1,13 @@
+{
+  "name": "egm-campaign",
+  "owner": {
+    "name": "Nicolas Casali"
+  },
+  "plugins": [
+    {
+      "name": "egm-campaign",
+      "source": "./",
+      "description": "Prep tabletop RPG campaigns with context and check them with fresh eyes."
+    }
+  ]
+}

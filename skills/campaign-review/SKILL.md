@@ -1,6 +1,8 @@
 ---
 name: campaign-review
 description: Check a TTRPG campaign document with fresh-context Goldfish reviewers against the run-readiness standard. Use `arc` for Continuity and Table critic, or `session <n>` for Substitute GM, Player's eye, and Difficulty.
+license: Apache-2.0
+disable-model-invocation: true
 ---
 
 <!-- Follows the Elephant-Goldfish Model egm-review reviewer passes (Copyright Google LLC, Apache 2.0). Rewritten by Nicolas Casali for campaign review; see NOTICE. -->
@@ -10,6 +12,28 @@ description: Check a TTRPG campaign document with fresh-context Goldfish reviewe
 You are the Elephant. You start Goldfish reviewers that see only the campaign
 document, collect their findings, and help the game master (GM) decide what
 to change. The reviewers never see this conversation.
+
+## Delegation
+
+A Goldfish runs in a fresh context with no conversation history. Spawn each
+one with your harness's subagent tool (Claude Code: `Agent`; Antigravity:
+`invoke_subagent`; Codex: `spawn_agent`). Each Goldfish is defined in
+`agents/<file>.md`, and its frontmatter `name` is the subagent type to request
+where your harness registers named subagents (in Claude Code, prefix it with
+the plugin name, for example `egm-campaign:campaign-difficulty`). Otherwise
+spawn a general-purpose subagent and tell it to read that persona file first.
+Pass the prompt verbatim and wait for the report. Never fork or resume a
+Goldfish; start a fresh one. If your harness has no subagent tool, stop and
+tell the user: a review in the same context is not a Goldfish review.
+
+In Claude Code, `${CLAUDE_PLUGIN_ROOT}` is the plugin root. Resolve
+`agents/...` and `resources/...` against it, and `references/...` against
+this skill's directory. Pass absolute paths in every Goldfish prompt. Write
+briefs, campaign documents, and reports to the user's working directory,
+never into the plugin.
+
+Command names are written here as `/campaign-<skill>`. In Claude Code, plugin
+skills are namespaced: use `/egm-campaign:campaign-<skill>`.
 
 ## Arguments
 
@@ -29,13 +53,13 @@ to change. The reviewers never see this conversation.
 
 | Reviewer | Persona | Default pass |
 | :--- | :--- | :--- |
-| Continuity | `reviewers/continuity.md` | Arc |
-| Table critic | `reviewers/table_critic.md` | Arc |
-| Substitute GM | `reviewers/substitute_gm.md` | Session |
-| Player's eye | `reviewers/players_eye.md` | Session |
-| Difficulty | `reviewers/difficulty.md` | Session |
+| Continuity | `agents/continuity.md` | Arc |
+| Table critic | `agents/table_critic.md` | Arc |
+| Substitute GM | `agents/substitute_gm.md` | Session |
+| Player's eye | `agents/players_eye.md` | Session |
+| Difficulty | `agents/difficulty.md` | Session |
 
-Every reviewer gets `standards/run-readiness-standard.md` as its standard.
+Every reviewer gets `resources/document_standards/run-readiness-standard.md` as its standard.
 
 ## Workflow
 
@@ -52,16 +76,16 @@ Suggest `/campaign-draft` to add it.
 
 ### Step 2: Start the reviewers
 
-Start every reviewer for the pass in parallel with `egm_reviewer`, one call
+Start every reviewer for the pass in parallel with your harness's subagent tool (see Delegation), one call
 each:
 
 ```text
-Persona: <absolute path of reviewers/<file>.md>
+Persona: <absolute path of agents/<reviewer>.md>
 Mode: REVIEW
 ProjectRoot: <working directory>
 TargetFile: <absolute path of the campaign document>
 LineRange: <start>-<end>
-TargetStandard: <absolute path of standards/run-readiness-standard.md>
+TargetStandard: <absolute path of resources/document_standards/run-readiness-standard.md>
 GoldfishContext: []
 Read your Persona file first and follow it.
 ```

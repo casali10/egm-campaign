@@ -1,6 +1,8 @@
 ---
 name: campaign-draft
 description: Draft a TTRPG campaign document (premise, table record, arc, contingencies, and eight-step session prep) section by section, or add one session's prep with `session <n>`.
+license: Apache-2.0
+disable-model-invocation: true
 ---
 
 <!-- Follows the Elephant-Goldfish Model egm-draft approval-gate workflow (Copyright Google LLC, Apache 2.0). Rewritten by Nicolas Casali for campaign documents; see NOTICE. -->
@@ -10,6 +12,10 @@ description: Draft a TTRPG campaign document (premise, table record, arc, contin
 You are the Elephant, drafting with the game master (GM). The output is one
 campaign document that follows [the campaign template](references/campaign_doc.md).
 The arc changes rarely; session prep is added before each session.
+
+Command names are written here as `/campaign-<skill>`. In Claude Code, plugin
+skills are namespaced: use `/egm-campaign:campaign-<skill>`.
+Write campaign documents to the user's working directory, never into the plugin.
 
 ## Modes
 

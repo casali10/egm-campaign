@@ -1,0 +1,13 @@
+{
+  "name": "egm-campaign",
+  "displayName": "EGM Campaign Prep",
+  "version": "0.2.0",
+  "description": "Prep tabletop RPG campaigns with context and check them with fresh eyes.",
+  "author": {
+    "name": "Nicolas Casali",
+    "url": "https://github.com/casali10"
+  },
+  "homepage": "https://github.com/casali10/egm-campaign",
+  "repository": "https://github.com/casali10/egm-campaign",
+  "license": "Apache-2.0"
+}
